@@ -1,12 +1,62 @@
 language: bg
 responses:
   errors:
-    no_intent: TODO Sorry, I couldn't understand that
-    no_area: TODO No area named {{ area }}
-    no_domain: TODO {{ area }} does not contain a {{ domain }}
-    no_device_class: TODO {{ area }} does not contain a {{ device_class }}
-    no_entity: TODO No device or entity named {{ entity }}
-    handle_error: TODO An unexpected error occurred while handling the intent
-lists: {}
-expansion_rules: {}
-skip_words: []
+    no_intent: "Извинявай, но не те разбрах"
+    no_area: "Няма намерена зона с името {{ area }}"
+    no_domain: "В зона {{ area }} няма обект {{ domain }}"
+    no_device_class: "В зона {{ area }} няма устройство {{ device_class }}"
+    no_entity: "Не съществува устройство с името {{ entity }}"
+    handle_error: "Възникна непредвидена грешка при обработка на заявката"
+lists:
+  color:
+    values:
+      - in: "бял | бяло"
+        out: "white"
+      - in: "черен | черно"
+        out: "black"
+      - in: "червен | червено"
+        out: "red"
+      - in: "оранжев | оранжево"
+        out: "orange"
+      - in: "жълт | жълто"
+        out: "yellow"
+      - in: "зелен | зелено"
+        out: "green"
+      - in: "син | синьо"
+        out: "blue"
+      - in: "лилав | лилаво"
+        out: "purple"
+      - in: "кафяв | кафяво"
+        out: "brown"
+  brightness:
+    range:
+      type: "percentage"
+      from: 0
+      to: 100
+  temperature:
+    range:
+      type: "temperature"
+      from: 0
+      to: 100
+  temperature_unit:
+    values:
+      - "celsius"
+      - in: "c | по целзий"
+        out: "Celsius"
+      - "fahrenheit"
+      - in: "f | по фаренхайт"
+        out: "Fahrenheit"
+expansion_rules:
+  name: "{name}"
+  area: "в {area}"
+  brightness: "{brightness:brightness_pct} [процента]"
+  temp: "(температура | градуса)"
+  temperature: "{temperature} [градуса] [{temperature_unit}]"
+  turn_on: "(включи | пусни)"
+  turn_off: "изключи"
+  set: "(задай | промени | настрой)"
+  close: "(затвори | прекрати)"
+  open: "отвори"
+skip_words:
+  - "моля"
+  - "моля те"
