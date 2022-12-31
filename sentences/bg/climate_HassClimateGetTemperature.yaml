@@ -2,4 +2,7 @@ language: bg
 intents:
   HassClimateGetTemperature:
     data:
-    - sentences: []
+    - sentences:
+        - "Колко градуса е в <area>"
+        - "Колко топло е в <area>"
+        - "Какво показва термостата в <area>"
