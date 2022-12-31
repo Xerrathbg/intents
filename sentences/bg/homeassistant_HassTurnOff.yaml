@@ -2,4 +2,6 @@ language: bg
 intents:
   HassTurnOff:
     data:
-    - sentences: []
+    - sentences:
+          - "спри <name>"
+          - "прекрати <name>"
